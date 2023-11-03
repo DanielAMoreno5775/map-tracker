@@ -14,6 +14,19 @@ html, body, #main, #map {
     background: transparent;
 }
 
+#starInfo {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 100;
+    width: 275px;
+    background: transparent;
+}
+
+.starInfo .panel-body {
+    background: transparent;
+}
+
 .info .panel-body {
     background: transparent;
 }
