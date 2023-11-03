@@ -5,11 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Daniel Moreno's Wild Rydes Site</title>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Serverless web application example">
     <meta name="author" content="">
+
+    <!--Link to Sizzle API-->
+    <script src="https://widgets.astronomyapi.com/cdn/astronomy-api-widgets.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
@@ -37,6 +41,16 @@
             <ol id="updates">
                 <li>Welcome! Click the map to set your pickup location.</li>
             </ol>
+        </div>
+    </div>
+
+    <div class="info panel panel-default">
+        <div class="panel-heading">
+            <h4>Astronomy Box</h4>
+        </div>
+        <div class="panel-body">
+            <div id="moon-phase"></div>
+            <div id="star-chart"></div>
         </div>
     </div>
 
@@ -97,6 +111,8 @@
     <script src="js/cognito-auth.js"></script>
     <script src="js/esri-map.js"></script>
     <script src="js/ride.js"></script>
+    <!--Link to calls to Sizzle API-->
+    <script src="js/astronomyAPI.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
             integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
             crossorigin=""></script>
