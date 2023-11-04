@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
       format: "png",
       style: {
         moonStyle: "default",
-        backgroundStyle: "stars",
-        backgroundColor: "red",
+        backgroundStyle: "solid",
+        backgroundColor: "#0a0f3c", //#0a0f3c
         headingColor: "white",
         textColor: "white",
       },
