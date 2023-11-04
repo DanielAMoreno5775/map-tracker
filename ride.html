@@ -57,9 +57,9 @@
         </div>
     </div>-->
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="modal" data-target="#staticBackdrop" data-bs-target="#staticBackdrop">
+    <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="modal" data-target="#staticBackdrop" data-bs-target="#staticBackdrop">
         Launch static backdrop modal
-    </button>
+    </button>-->
       
     <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -68,13 +68,13 @@
               <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-center center-block">
+            <div class="modal-body text-center center-block container-fluid">
               <div id="moon-phase"></div>
               <br><br><br>
               <div id="star-chart"></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" onclick="$('#staticBackdrop').modal('hide');">Close</button>
             </div>
           </div>
         </div>
