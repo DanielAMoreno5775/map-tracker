@@ -23,10 +23,6 @@ html, body, #main, #map {
     width: 125px;
 }
 
-#staticBackdrop {
-    width: 1140px !important;
-}
-
 #starInfo {
     position: absolute;
     left: 10px;
