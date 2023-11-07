@@ -45,12 +45,6 @@ function getAstronomicalImages(pickupLocation) {
   lat = pickupLocation.latitude
   long = pickupLocation.longitude
 
-  //must calculate the right ascension and declination based on the observer's latitude and longitude
-  //https://www.hackster.io/30506/calculation-of-right-ascension-and-declination-402218#toc-azimuth-and-elevation--altitude--conversion-from-ra-and-dec--equitorial-coordinates-to-horizontal-coordinates-12
-  //https://astronomy.stackexchange.com/questions/9/could-someone-explain-ra-dec-in-simple-terms
-  //https://astronomy.stackexchange.com/questions/47937/what-is-the-connection-between-declination-and-latitude
-  //https://www.cloudynights.com/topic/618919-finding-zenith/ - declination = latitude; RA = current sidereal time as RA of N-S meridian
-  //https://squarewidget.com/astronomical-calculations-sidereal-time/
   //calculate declination based on observer's latitude
   declinationVar = parseFloat(lat)
 
@@ -123,7 +117,7 @@ function getAstronomicalImages(pickupLocation) {
                   declination: declinationVar
                 }
               },
-              zoom: 2
+              zoom: 3
             },
           },
         },
