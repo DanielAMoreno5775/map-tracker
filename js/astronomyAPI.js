@@ -13,10 +13,13 @@ function yyyymmdd() {
 
 function removeBackdrop(className) {
   //document.getElementById("modal-backdrop").outerHTML = ""; //doesn't work because it is a class
-  const elements = document.getElementsByClassName(modal-backdrop);
+  /*const elements = document.getElementsByClassName(modal-backdrop);
   while(elements.length > 0){
     elements[0].parentNode.removeChild(elements[0]);
-  }
+  }*/
+  $('#staticBackdrop').modal('hide');
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
