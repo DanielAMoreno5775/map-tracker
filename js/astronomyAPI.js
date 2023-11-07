@@ -65,8 +65,8 @@ function getAstronomicalImages(pickupLocation) {
           element: "#star-chart", // custom html element
           style: "navy",
           observer: {
-            latitude: lat,
-            longitude: long,
+            latitude: parseFloat(lat),
+            longitude: parseFloat(long),
             date: yyyymmdd(),
           },
           view: {
