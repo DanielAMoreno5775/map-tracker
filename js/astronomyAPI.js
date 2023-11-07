@@ -23,9 +23,7 @@ function getAstronomicalImages(pickupLocation) {
   long = pickupLocation.longitude
 
   console.log(lat)
-  console.log(typeof lat)
   console.log(long)
-  console.log(typeof long)
 
   //make API call for moon phase image
   client.moonPhase(
@@ -40,8 +38,8 @@ function getAstronomicalImages(pickupLocation) {
         textColor: "white",
       },
       observer: {
-        latitude: 32.899072,
-        longitude: -97.3570048,
+        latitude: lat,
+        longitude: long,
         date: yyyymmdd(),
       },
       view: {
@@ -60,8 +58,8 @@ function getAstronomicalImages(pickupLocation) {
       element: "#star-chart", // custom html element
       style: "navy",
       observer: {
-        latitude: 32.899072,
-        longitude: -97.3570048,
+        latitude: lat,
+        longitude: long,
         date: yyyymmdd(),
       },
       view: {
