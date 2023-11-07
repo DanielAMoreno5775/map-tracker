@@ -26,9 +26,13 @@ function getAstronomicalImages(pickupLocation) {
       long = pickupLocation.longitude
 
       console.log(lat)
+      console.log(typeof lat)
       console.log(parseFloat(lat))
+      console.log(typeof parseFloat(lat))
       console.log(long)
+      console.log(typeof long)
       console.log(parseFloat(long))
+      console.log(typeof parseFloat(long))
 
       //make API call for moon phase image
       client.moonPhase(
