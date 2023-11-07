@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
           integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
           crossorigin=""/>
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src='js/vendor/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
     <link rel="stylesheet" href="/css/ride.css">
     <link rel="stylesheet" href="/css/message.css">
 </head>
@@ -32,7 +35,7 @@
         <div class="panel-heading">
             <button id="request" class="btn btn-primary" disabled="disabled" data-bs-toggle="modal" data-toggle="modal" data-target="#staticBackdrop" data-bs-target="#staticBackdrop" data-inline="true">Set pickup</button>
             <div class="dropdown pull-right" id="accountDropdown">
-                <button id="accountLink" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-inline="true">
+                <button id="accountLink" class="btn dropdown-toggle" type="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-inline="true">
                     Account <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="accountLink">
@@ -125,11 +128,11 @@
     <script src="js/cognito-auth.js"></script>
     <script src="js/esri-map.js"></script>
     <script src="js/ride.js"></script>
-    <!--Link to calls to Sizzle API-->
-    <script src="js/astronomyAPI.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
             integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
             crossorigin=""></script>
+    <!--Link to calls to Sizzle API-->
+    <script src="js/astronomyAPI.js"></script>
 </body>
 
 </html>

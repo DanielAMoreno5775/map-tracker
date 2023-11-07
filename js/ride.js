@@ -1,5 +1,9 @@
 /*global WildRydes _config*/
 
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+
 var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 let map;
