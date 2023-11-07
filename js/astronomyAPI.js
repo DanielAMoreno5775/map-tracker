@@ -55,6 +55,7 @@ function getAstronomicalImages(pickupLocation) {
   declinationVar = parseFloat(lat)
 
   //calculate right ascension based on the time and the observer's longitude
+  //equations from Astronomical Algorithms by Jean Meeus
   let today = new Date()
   let julianDay = today.getJulian()
   let t = ((julianDay - 2451545.0) / 36525)
@@ -118,7 +119,7 @@ function getAstronomicalImages(pickupLocation) {
             parameters: {
               position: {
                 equatorial: {
-                  rightAscension: lmstRA,
+                  rightAscension: rightAscensionVar,
                   declination: declinationVar
                 }
               },
