@@ -20,8 +20,8 @@ function resetAPIImages() {
 }
 
 function getAstronomicalImages(pickupLocation) {
-  document.querySelectorAll(".moon-phase img").forEach(img => img.remove());
-  document.querySelectorAll(".star-chart img").forEach(img => img.remove());
+  document.querySelectorAll("#moon-phase img").forEach(img => img.remove());
+  document.querySelectorAll("#star-chart img").forEach(img => img.remove());
 
   //get the selected latitude and longitude
   lat = pickupLocation.latitude
