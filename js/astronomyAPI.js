@@ -61,10 +61,11 @@ function getAstronomicalImages(pickupLocation) {
   let theta0 = 280.46061837 + 360.98564736629 * (julianDay - 2451545.0) + (0.000387933 * t * t) - (t * t * t / 38710000.0)
   let gmstRA = reduceAngle(theta0)
   let lmstRA = gmstRA + long
+  let rightAscensionVar = (lmstRA / 15)
 
   console.log(long)
   console.log(gmstRA)
-  console.log(lmstRA)
+  console.log(rightAscensionVar)
 
   //infinite loop until all resources in the page have been loaded
   while (1) {
