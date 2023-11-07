@@ -19,6 +19,23 @@ function resetAPIImages() {
   starImg.remove()
 }
 
+//add a new function to the Date object
+Date.prototype.getJulian = function() {
+  //this divided by 86400000 reflects the days since epoch
+  //1440 minutes in a day
+  //(this.getTimezoneOffset() / 1440) subtracts the local systems timezone offset
+  //2440587.5 is the number of days from 4713BC to 1970AD
+  return Math.floor((this / 86400000) - (this.getTimezoneOffset() / 1440) + 2440587.5);
+}
+
+function reduceAngle (deg) {
+  deg %= 360
+  if (deg < 0) {
+    deg += 360
+  }
+  return deg
+}
+
 function getAstronomicalImages(pickupLocation) {
   //remove the previously generated images
   document.querySelectorAll("#moon-phase img").forEach(img => img.remove());
@@ -28,10 +45,31 @@ function getAstronomicalImages(pickupLocation) {
   lat = pickupLocation.latitude
   long = pickupLocation.longitude
 
+  //must calculate the right ascension and declination based on the observer's latitude and longitude
+  //https://www.hackster.io/30506/calculation-of-right-ascension-and-declination-402218#toc-azimuth-and-elevation--altitude--conversion-from-ra-and-dec--equitorial-coordinates-to-horizontal-coordinates-12
+  //https://astronomy.stackexchange.com/questions/9/could-someone-explain-ra-dec-in-simple-terms
+  //https://astronomy.stackexchange.com/questions/47937/what-is-the-connection-between-declination-and-latitude
+  //https://www.cloudynights.com/topic/618919-finding-zenith/ - declination = latitude; RA = current sidereal time as RA of N-S meridian
+  //https://squarewidget.com/astronomical-calculations-sidereal-time/
+  //calculate declination based on observer's latitude
+  declinationVar = parseFloat(lat)
+
+  //calculate right ascension based on the time and the observer's longitude
+  let today = new Date()
+  let julianDay = today.getJulian()
+  let t = ((julianDay - 2451545.0) / 36525)
+  let theta0 = 280.46061837 + 360.98564736629 * (julianDay - 2451545.0) + (0.000387933 * t * t) - (t * t * t / 38710000.0)
+  let gmstRA = reduceAngle(theta0)
+  let lmstRA = gmstRA + long
+
+  console.log(long)
+  console.log(gmstRA)
+  console.log(lmstRA)
+
   //infinite loop until all resources in the page have been loaded
   while (1) {
     if (document.readyState === "complete" || document.readyState === "loaded") {
-      //get the API key
+      //get the API
       const authString = btoa(`39ef0597-a976-40b5-aa9a-96323fd2db7f:e6066031a8c91e638c47fe8b135457a31e034eafc057e2be4770551214c0783f2d555a8b84f9d64dac093495325fd7746652ece4164dacb2f25eccf0b6f6aee3674569ba0614d091c0f640da17a86b8ca8ac576e724016b7ca721d168e2a1490f6f1d8c999a4f5d321ebc18da15014c9`);
       var client = new AstronomyAPI({
         basicToken: authString,
@@ -79,11 +117,11 @@ function getAstronomicalImages(pickupLocation) {
             parameters: {
               position: {
                 equatorial: {
-                  rightAscension: 14.83,
-                  declination: -15.23
+                  rightAscension: lmstRA,
+                  declination: declinationVar
                 }
               },
-              zoom: 1
+              zoom: 2
             },
           },
         },
