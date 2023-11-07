@@ -10,7 +10,7 @@ html, body, #main, #map {
     right: 10px;
     top: 10px;
     z-index: 100;
-    width: 275px;
+    width: 350px;
     background: transparent;
 }
 
@@ -34,7 +34,7 @@ html, body, #main, #map {
     border-color: #000;
     border-radius: 5px;
     text-align: center;
-    width: 135px;
+    width: 160px;
 }
 
 #request:disabled {
