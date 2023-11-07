@@ -26,7 +26,9 @@ function getAstronomicalImages(pickupLocation) {
       long = pickupLocation.longitude
 
       console.log(lat)
+      console.log(parseFloat(lat))
       console.log(long)
+      console.log(parseFloat(long))
 
       //make API call for moon phase image
       client.moonPhase(
@@ -41,8 +43,10 @@ function getAstronomicalImages(pickupLocation) {
             textColor: "white",
           },
           observer: {
-            latitude: lat,
-            longitude: long,
+            //latitude: lat,
+            //longitude: long,
+            latitude: parseFloat(lat),
+            longitude: parseFloat(long),
             date: yyyymmdd(),
           },
           view: {
