@@ -20,6 +20,7 @@ function resetAPIImages() {
 }
 
 function getAstronomicalImages(pickupLocation) {
+  //remove the previously generated images
   document.querySelectorAll("#moon-phase img").forEach(img => img.remove());
   document.querySelectorAll("#star-chart img").forEach(img => img.remove());
 
@@ -39,25 +40,23 @@ function getAstronomicalImages(pickupLocation) {
       //make API call for moon phase image
       client.moonPhase(
         {
-          element: "#moon-phase", // custom html element
+          element: "#moon-phase", // html element to target
           format: "png",
           style: {
             moonStyle: "default",
             backgroundStyle: "solid",
             backgroundColor: "#0a0f3c", //navy blue
             headingColor: "white",
-            textColor: "white",
+            textColor: "white"
           },
           observer: {
-            //latitude: lat,
-            //longitude: long,
             latitude: parseFloat(lat),
             longitude: parseFloat(long),
-            date: yyyymmdd(),
+            date: yyyymmdd()
           },
           view: {
             type: "landscape-simple",
-            orientation: "north-up",
+            orientation: "north-up"
           },
         },
         (re) => { // callback function
@@ -68,12 +67,12 @@ function getAstronomicalImages(pickupLocation) {
       //make API call for star chart image
       client.starChart(
         {
-          element: "#star-chart", // custom html element
+          element: "#star-chart", // html element to target
           style: "navy",
           observer: {
             latitude: parseFloat(lat),
             longitude: parseFloat(long),
-            date: yyyymmdd(),
+            date: yyyymmdd()
           },
           view: {
             type: "area",
@@ -84,7 +83,7 @@ function getAstronomicalImages(pickupLocation) {
                   declination: -15.23
                 }
               },
-              zoom: 3
+              zoom: 1
             },
           },
         },
