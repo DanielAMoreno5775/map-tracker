@@ -15,8 +15,8 @@ html, body, #main, #map {
 }
 
 .panel-heading {
-    display: inline;
-    width: 350px;
+    display: inline-block;
+    width: 350px !important;
 }
 
 #accountDropdown {
