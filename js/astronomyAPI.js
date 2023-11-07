@@ -11,9 +11,17 @@ function yyyymmdd() {
   return formattedDate
 }
 
+function resetAPIImages() {
+  let moonImg = document.getElementById('moon-phase')
+  let starImg = document.getElementById('star-chart')
 
+  moonImg.remove()
+  starImg.remove()
+}
 
 function getAstronomicalImages(pickupLocation) {
+  resetAPIImages()
+
   //get the selected latitude and longitude
   lat = pickupLocation.latitude
   long = pickupLocation.longitude
