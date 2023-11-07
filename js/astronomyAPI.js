@@ -11,8 +11,12 @@ function yyyymmdd() {
   return formattedDate
 }
 
-function removeBackdrop() {
-  document.getElementById("modal-backdrop").outerHTML = "";
+function removeBackdrop(className) {
+  //document.getElementById("modal-backdrop").outerHTML = ""; //doesn't work because it is a class
+  const elements = document.getElementsByClassName(className);
+  while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
