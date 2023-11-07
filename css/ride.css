@@ -16,10 +16,11 @@ html, body, #main, #map {
 
 .panel-heading {
     display: inline;
+    width: 350px;
 }
 
 #accountDropdown {
-    width: 150px;
+    width: 125px;
 }
 
 #starInfo {
