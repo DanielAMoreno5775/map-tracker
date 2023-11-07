@@ -13,19 +13,23 @@ function yyyymmdd() {
 
 function removeBackdrop(className) {
   //document.getElementById("modal-backdrop").outerHTML = ""; //doesn't work because it is a class
-  const elements = document.getElementsByClassName(className);
+  const elements = document.getElementsByClassName(modal-backdrop);
   while(elements.length > 0){
     elements[0].parentNode.removeChild(elements[0]);
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  //get the API key
   const authString = btoa(`39ef0597-a976-40b5-aa9a-96323fd2db7f:e6066031a8c91e638c47fe8b135457a31e034eafc057e2be4770551214c0783f2d555a8b84f9d64dac093495325fd7746652ece4164dacb2f25eccf0b6f6aee3674569ba0614d091c0f640da17a86b8ca8ac576e724016b7ca721d168e2a1490f6f1d8c999a4f5d321ebc18da15014c9`);
   var client = new AstronomyAPI({
     basicToken: authString,
   });
 
+  //get the selected latitude and longitude
+  
 
+  //make API call for moon phase image
   client.moonPhase(
     {
       element: "#moon-phase", // custom html element
@@ -52,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   );
 
+  //make API call for star chart image
   client.starChart(
     {
       element: "#star-chart", // custom html element
