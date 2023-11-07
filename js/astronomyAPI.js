@@ -18,67 +18,76 @@ function getAstronomicalImages(pickupLocation) {
     basicToken: authString,
   });
 
-  //get the selected latitude and longitude
-  lat = pickupLocation.latitude
-  long = pickupLocation.longitude
+  //infinite loop until all resources in the page have been loaded
+  while (1) {
+    if (document.readyState === "complete" || document.readyState === "loaded") {
+      //get the selected latitude and longitude
+      lat = pickupLocation.latitude
+      long = pickupLocation.longitude
 
-  console.log(lat)
-  console.log(long)
+      console.log(lat)
+      console.log(long)
 
-  //make API call for moon phase image
-  client.moonPhase(
-    {
-      element: "#moon-phase", // custom html element
-      format: "png",
-      style: {
-        moonStyle: "default",
-        backgroundStyle: "solid",
-        backgroundColor: "#0a0f3c", //navy blue
-        headingColor: "white",
-        textColor: "white",
-      },
-      observer: {
-        latitude: lat,
-        longitude: long,
-        date: yyyymmdd(),
-      },
-      view: {
-        type: "landscape-simple",
-        orientation: "north-up",
-      },
-    },
-    (re) => { // callback function
-      console.log("done", re);
-    },
-  );
-
-  //make API call for star chart image
-  client.starChart(
-    {
-      element: "#star-chart", // custom html element
-      style: "navy",
-      observer: {
-        latitude: lat,
-        longitude: long,
-        date: yyyymmdd(),
-      },
-      view: {
-        type: "area",
-        parameters: {
-          position: {
-            equatorial: {
-              rightAscension: 14.83,
-              declination: -15.23
-            }
+      //make API call for moon phase image
+      client.moonPhase(
+        {
+          element: "#moon-phase", // custom html element
+          format: "png",
+          style: {
+            moonStyle: "default",
+            backgroundStyle: "solid",
+            backgroundColor: "#0a0f3c", //navy blue
+            headingColor: "white",
+            textColor: "white",
           },
-          zoom: 3
+          observer: {
+            latitude: lat,
+            longitude: long,
+            date: yyyymmdd(),
+          },
+          view: {
+            type: "landscape-simple",
+            orientation: "north-up",
+          },
         },
-      },
-    },
-    (re) => { // callback function
-      console.log("done", re);
-    },
-  );
+        (re) => { // callback function
+          console.log("done", re);
+        },
+      );
+
+      //make API call for star chart image
+      client.starChart(
+        {
+          element: "#star-chart", // custom html element
+          style: "navy",
+          observer: {
+            latitude: lat,
+            longitude: long,
+            date: yyyymmdd(),
+          },
+          view: {
+            type: "area",
+            parameters: {
+              position: {
+                equatorial: {
+                  rightAscension: 14.83,
+                  declination: -15.23
+                }
+              },
+              zoom: 3
+            },
+          },
+        },
+        (re) => { // callback function
+          console.log("done", re);
+        },
+      );
+
+      break //ends the loop
+    }
+  }
+
+  
 }
 
 /*
