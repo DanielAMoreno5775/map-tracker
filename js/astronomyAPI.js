@@ -127,7 +127,7 @@ function getAstronomicalImages(pickupLocation) {
         (re) => { // callback function
           console.log("done", re)
           setTimeout(function() {
-            displayUpdate('An image of the stars above the selected location has been retrieved', '#6495ED');
+            displayUpdate('<strong>An image of the stars above the selected location has been retrieved</strong>', '#6F8FAF');
           }, (500)); //basically delays action by 500 milliseconds
         },
       );
