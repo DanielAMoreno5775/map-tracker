@@ -95,7 +95,9 @@ function getAstronomicalImages(pickupLocation) {
         },
         (re) => { // callback function
           console.log("done", re)
-          displayUpdate('The moon phase and time of rising/setting for the selected location have been retrieved');
+          setTimeout(function() {
+            displayUpdate('The moon phase and time of rising/setting for the selected location have been retrieved');
+          }, (2500)); //basically delays action by 2500 milliseconds
         },
       );
 
@@ -124,7 +126,9 @@ function getAstronomicalImages(pickupLocation) {
         },
         (re) => { // callback function
           console.log("done", re)
-          displayUpdate('An image of the stars above the selected location has been retrieved');
+          setTimeout(function() {
+            displayUpdate('An image of the stars above the selected location has been retrieved');
+          }, (500)); //basically delays action by 500 milliseconds
         },
       );
 
