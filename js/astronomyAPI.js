@@ -96,7 +96,7 @@ function getAstronomicalImages(pickupLocation) {
         (re) => { // callback function
           console.log("done", re)
           setTimeout(function() {
-            displayUpdate('The moon phase and time of rising/setting for the selected location have been retrieved', '#6F8FAF');
+            displayUpdate('<strong>The moon phase and time of rising/setting for the selected location have been retrieved</strong>', '#6F8FAF');
           }, (2500)); //basically delays action by 2500 milliseconds
         },
       );
